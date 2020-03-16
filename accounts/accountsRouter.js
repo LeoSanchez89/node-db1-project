@@ -18,7 +18,6 @@ router.get("/", (req, res) => {
 // get acct by id
 router.get("/:id", (req, res) => {
 	db("accounts")
-		// .where("id", "=", req.params.id)
 		.where({ id: req.params.id })
 		.first()
 		.then(acct => {
@@ -70,6 +69,7 @@ router.put("/:id", (req, res) => {
 	}
 });
 
+// delete account
 router.delete("/:id", (req, res) => {
 	db("accounts")
 		.where({ id: req.params.id })
